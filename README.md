@@ -1,6 +1,5 @@
-# srjc_spider
-
-This is the scraper for the srjc scheduler
+srjc_spider
+  This is the scraper for the srjc scheduler
 ==========================================
 #In order to run:
 
