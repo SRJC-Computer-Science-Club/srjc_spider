@@ -1,6 +1,5 @@
-srjc_spider
-  This is the scraper for the srjc scheduler
-==========================================
+This is the scraper for the scheduler website
+--------------------------------------------------
 #In order to run:
 
 ## Authentication
