@@ -8,8 +8,8 @@ This is the scraper for the scheduler website
  else inside of pipeline and the connect function, you must declare your own db and credentials
 
 ### Libraries
-  Uses a combination of (scrapy)[https://scrapy.org/] and (Beautiful soup)[https://www.crummy.com/software/BeautifulSoup/bs4/doc/]
-  A beta using (selenium)[http://www.seleniumhq.org/] has been provided inside of srjc_selenium
+  Uses a combination of [scrapy](https://scrapy.org/) and [Beautiful soup](https://www.crummy.com/software/BeautifulSoup/bs4/doc/)
+  A beta using [selenium](http://www.seleniumhq.org/) has been provided inside of srjc_selenium
 
 This shows how to properly yield and use the twisted-scrapy framework, more to come involving middleware
 specficially for other colleges support and hopefuly a net to just scrape all at once for multiple colleges
