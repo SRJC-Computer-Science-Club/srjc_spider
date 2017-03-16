@@ -9,6 +9,7 @@ This is the scraper for the scheduler website
 
 ### Libraries
   Uses a combination of [scrapy](https://scrapy.org/) and [Beautiful soup](https://www.crummy.com/software/BeautifulSoup/bs4/doc/)
+  
   A beta using [selenium](http://www.seleniumhq.org/) has been provided inside of srjc_selenium
 
 This shows how to properly yield and use the twisted-scrapy framework, more to come involving middleware
