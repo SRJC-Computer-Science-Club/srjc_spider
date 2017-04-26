@@ -7,8 +7,8 @@ from sqlalchemy.orm import relationship
 Base = declarative_base()
 
 
-class Sections(Base):
-    __tablename__ = 'sections'
+class Class(Base):
+    __tablename__ = 'classes'
     section_id = Column('section_id', Integer, primary_key=True)
     short_name = Column('short_name', String)
     long_name = Column('long_name', String)
@@ -24,11 +24,11 @@ class Sections(Base):
     end_date = Column('end_date', Integer)
     final_date = Column('final_date', Integer)
 
-    times = relationship("Times")
+    sections = relationship("Section")
 
 
-class Times(Base):
-    __tablename__ = 'times'
+class Section(Base):
+    __tablename__ = 'sections'
     id = Column(Integer, primary_key=True, autoincrement=True)
 
     monday = Column('monday', Boolean)
@@ -45,5 +45,5 @@ class Times(Base):
     campus = Column('campus', String)
     room = Column('room', String)
 
-    section_id = Column("section_id", ForeignKey('sections.section_id'))
+    section_id = Column("section_id", ForeignKey('classes.section_id'))
 

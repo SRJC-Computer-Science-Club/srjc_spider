@@ -24,5 +24,5 @@ class SrjcScraperItem(scrapy.Item):
     end_date = scrapy.Field()
     final_date = scrapy.Field()
 
-    times = scrapy.Field()
+    sections = scrapy.Field()
     pass

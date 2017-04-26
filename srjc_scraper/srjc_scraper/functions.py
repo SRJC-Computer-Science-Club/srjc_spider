@@ -2,7 +2,7 @@ import re
 import sqlalchemy
 from sqlalchemy import MetaData
 from sqlalchemy import create_engine
-from .object_relational_models import Times
+from .object_relational_models import Section
 from .items import SrjcScraperItem
 import datetime as dt
 
@@ -36,7 +36,7 @@ def convert_item(dict):
     # print(dict)
     try:
 
-        srjc_item['times'] = generate_times(dict['days'],
+        srjc_item['sections'] = generate_times(dict['days'],
                                             dict['hours'],
                                             dict['location'],
                                             dict['room'])
@@ -53,43 +53,43 @@ def convert_item(dict):
 
 
 def generate_times(days, hours, campus, room):
-    times_array = []
+    section_array = []
     for index, time in enumerate(days):
         split_time = split_by_weekday(time)
-        new_time = Times()
+        new_section = Section()
 
         # handling weekdays
-        new_time.monday = 'M' in split_time
-        new_time.tuesday = 'T' in split_time
-        new_time.wednesday = 'W' in split_time
-        new_time.thursday = 'Th' in split_time
-        new_time.friday = 'F' in split_time
-        new_time.saturday = 'Sat' in split_time
-        new_time.sunday = 'Sun' in split_time
+        new_section.monday = 'M' in split_time
+        new_section.tuesday = 'T' in split_time
+        new_section.wednesday = 'W' in split_time
+        new_section.thursday = 'Th' in split_time
+        new_section.friday = 'F' in split_time
+        new_section.saturday = 'Sat' in split_time
+        new_section.sunday = 'Sun' in split_time
 
         # handling room
         if len(campus) > 1:
-            new_time.room = room[index]
+            new_section.room = room[index]
         else:
-            new_time.room = room[0]
+            new_section.room = room[0]
 
         # handling hours
         if len(hours) > 1:
             hours_array = hours[index].split("-")
-            new_time.start_time = convert_to_military_time(hours_array[0])
-            new_time.end_time = convert_to_military_time(hours_array[1])
+            new_section.start_time = convert_to_military_time(hours_array[0])
+            new_section.end_time = convert_to_military_time(hours_array[1])
         else:
             hours_array = hours[0].split("-")
-            new_time.start_time = convert_to_military_time(hours_array[0])
-            new_time.end_time = convert_to_military_time(hours_array[1])
+            new_section.start_time = convert_to_military_time(hours_array[0])
+            new_section.end_time = convert_to_military_time(hours_array[1])
 
         # handling campus
         if len(campus) > 1:
-            new_time.campus = campus[index]
+            new_section.campus = campus[index]
         else:
-            new_time.campus = campus[0]
-        times_array.append(new_time)
-    return times_array
+            new_section.campus = campus[0]
+        section_array.append(new_section)
+    return section_array
 
 
 def get_field_name(x):
